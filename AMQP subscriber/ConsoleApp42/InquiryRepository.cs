@@ -13,7 +13,7 @@ namespace ConsoleApp42
         string connectionString = ConfigurationManager.ConnectionStrings["dbconnect"].ConnectionString;
         public Guid AddInquiry(Inquiry inquiry)
         {
-            using (IDbConnection db = new SqlConnection("Server=tcp:testdbms157.database.windows.net,1433;Initial Catalog=TestInfrastructureDBMS;Persist Security Info=False;User ID=admindbms;Password=6iK=Bb!9#dyv2.P;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"))
+            using (IDbConnection db = new SqlConnection(connectionString))
             {
                 var dynamicParams = new DynamicParameters();
                 dynamicParams.Add("client_id", inquiry.client_id, DbType.Guid, direction: ParameterDirection.Input);
